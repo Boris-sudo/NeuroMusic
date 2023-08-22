@@ -16,7 +16,6 @@ export class MoodCardComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(function(mood, color_scheme) {
       document.getElementById('card'+mood)!.style.background=color_scheme!;
-
     }, 10, this.mood, this.color_scheme);
   }
 

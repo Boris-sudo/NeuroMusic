@@ -1,6 +1,6 @@
-.container {
+.mood-container {
   height: calc(100vh - 70px);
 }
-.text {
+.mood-text {
   font-size: 2.5em;
 }

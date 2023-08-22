@@ -1,1 +1,21 @@
-<p>search-container works!</p>
+<div id="search-background" class="search-background scroll-bar">
+  <p class="main-text">Настроение</p>
+  <div id="mood-card-container" class="flex rel column cards-container">
+
+    <div *ngFor="let list of moodList| search:searchValue; let i=index " class="mood-container flex column ver-center hor-center">
+      <div *ngIf="i < 3" [id]="'card'+list.name" class="mood-card"></div>
+      <p *ngIf="i < 3" class="mood-text">{{list.name}}</p>
+    </div>
+
+  </div>
+
+  <p class="main-text">Жанр</p>
+  <div class="flex rel column cards-container">
+
+    <div *ngFor="let list of genreList | search:searchValue; let i=index" class="genre-container rel flex column ver-center hor-center">
+      <img *ngIf="i<3" class="genre-card" [src]="list.image">
+      <div *ngIf="i<3" class="genre-text-cont flex ver-center hor-center"><p [id]="'text'+list.name" class="genre-text">{{list.name}}</p></div>
+    </div>
+
+  </div>
+</div>

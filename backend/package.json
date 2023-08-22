@@ -1,8 +1,8 @@
 {
-  "name": "nodejs_second",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
     "watch-server": "nodemon --watch src --exec ts-node src/server.ts",
     "build-swagger-and-routes": "tsoa spec-and-routes"

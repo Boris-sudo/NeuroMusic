@@ -1,0 +1,6 @@
+@media screen and (min-width: 500px) {
+  .margin { margin-left: 120px;}
+}
+@media screen and (max-width: 500px) {
+  .margin { margin-left: 0;}
+}

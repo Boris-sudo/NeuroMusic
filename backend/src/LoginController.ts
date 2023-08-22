@@ -1,28 +1,48 @@
-import {Body, OperationId, Post, Route} from "tsoa";
-
-export class LoginRequest {
-    login: string;
-    password: string;
-    name: string;
-    e_mail: string;
-}
+import {
+    Body,
+    OperationId,
+    Post,
+    Route,
+    Tags
+} from "tsoa";
+import { User, UserPost } from "./_modules/UserModel";
+import {Controller} from "@tsoa/runtime";
 
 export class LoginResponse {
     constructor(
-        public login: string,
-        public password: string,
+        public username: string,
+        public email: string,
         public done : boolean
     ) {}
 }
 
 @Route("/login")
-export class LoginController {
+export class LoginController extends Controller {
+    check_valid_date(user: UserPost) {
+        let result: boolean = true;
+        // TODO
+        return result;
+    }
 
     @Post()
     @OperationId("doLogin")
-    public async auth(@Body() dto: LoginRequest): Promise<LoginResponse> {
-        if (dto.login.length < 5 || dto.e_mail.length <= 0 || dto.password.length <= 0 || dto.name.length <= 0)
-            return new LoginResponse(`${dto.login}`, `${dto.password}`, true);
-        return new LoginResponse(`${dto.login}`, `${dto.password}`, false);
+    @Tags("BackendApi")
+    public async auth(
+        @Body() dto: UserPost
+    ): Promise<LoginResponse>
+    {
+        console.log('login in backend')
+        if (this.check_valid_date(dto))
+            return new LoginResponse(
+                `${dto.username}`,
+                `${dto.password}`,
+                true
+            );
+
+        return new LoginResponse(
+            `${dto.username}`,
+            `${dto.password}`,
+            false
+        );
     }
 }

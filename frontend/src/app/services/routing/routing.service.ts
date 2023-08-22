@@ -11,6 +11,8 @@ interface Routes {
 export class RoutingService {
   public routes: Routes[] = [
     {path: '', component_id: 'app-start-page',},
+    {path: '/search', component_id: 'app-mobile-search',},
+    {path: '/login', component_id: 'app-login',},
     {path: '**', component_id: 'app-not-found-page',},
   ];
 

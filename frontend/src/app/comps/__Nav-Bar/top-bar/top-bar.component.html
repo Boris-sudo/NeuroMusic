@@ -4,9 +4,14 @@
   </div>
   <div class="top-bar-search rel">
     <div class="f-w f-h flex row abs ver-center hor-center" style="top: 0; left: 0; padding: 0 50px 0 70px;">
-      <input placeholder="Search" class="main-inp">
-<!--       TODO сделать поиск -->
+      <div class="main-inp-cont bd-1 bd-fff bd-solid">
+        <input [(ngModel)]="searchValue" placeholder="Search" class="main-inp">
+
+        <app-search-container [searchValue]="searchValue" *ngIf="searchValue.length>0"></app-search-container>
+
+      </div>
       <img src="assets/search.svg" width="25px" style="left: 80px; top: 22.5px; position: absolute">
+      <div class="search-container"></div>
     </div>
   </div>
 </div>
@@ -28,3 +33,4 @@
   <path id="opener-svg-1" d="M6.66667 13.3333H33.3333" stroke="#EFEEE0" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
   <path id="opener-svg-2" d="M6.66667 26.6667H33.3333" stroke="#EFEEE0" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
+

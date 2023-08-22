@@ -3,10 +3,6 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse, fetchMiddlewares } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { AuthController } from './../AuthController';
-// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { HelloController } from './../HelloController';
-// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { LoginController } from './../LoginController';
 import type { Middleware } from 'koa';
 import * as KoaRouter from '@koa/router';
@@ -14,44 +10,22 @@ import * as KoaRouter from '@koa/router';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
-    "AuthResponse": {
-        "dataType": "refObject",
-        "properties": {
-            "login": {"dataType":"string","required":true},
-            "password": {"dataType":"string","required":true},
-            "done": {"dataType":"boolean","required":true},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "AuthRequest": {
-        "dataType": "refObject",
-        "properties": {
-            "login": {"dataType":"string","required":true},
-            "password": {"dataType":"string","required":true},
-            "name": {"dataType":"string","required":true},
-            "e_mail": {"dataType":"string","required":true},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "LoginResponse": {
         "dataType": "refObject",
         "properties": {
-            "login": {"dataType":"string","required":true},
-            "password": {"dataType":"string","required":true},
+            "username": {"dataType":"string","required":true},
+            "email": {"dataType":"string","required":true},
             "done": {"dataType":"boolean","required":true},
         },
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "LoginRequest": {
+    "UserPost": {
         "dataType": "refObject",
         "properties": {
-            "login": {"dataType":"string","required":true},
+            "username": {"dataType":"string","required":true},
             "password": {"dataType":"string","required":true},
-            "name": {"dataType":"string","required":true},
-            "e_mail": {"dataType":"string","required":true},
+            "email": {"dataType":"string","required":true},
         },
         "additionalProperties": false,
     },
@@ -66,83 +40,13 @@ export function RegisterRoutes(router: KoaRouter) {
     //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
-        router.post('/auth',
-            ...(fetchMiddlewares<Middleware>(AuthController)),
-            ...(fetchMiddlewares<Middleware>(AuthController.prototype.auth)),
-
-            async function AuthController_auth(context: any, next: any) {
-            const args = {
-                    dto: {"in":"body","name":"dto","required":true,"ref":"AuthRequest"},
-            };
-
-            let validatedArgs: any[] = [];
-            try {
-              validatedArgs = getValidatedArgs(args, context, next);
-            } catch (err) {
-              const error = err as any;
-              context.status = error.status;
-              context.throw(error.status, JSON.stringify({ fields: error.fields }));
-            }
-
-            const controller = new AuthController();
-
-            const promise = controller.auth.apply(controller, validatedArgs as any);
-            return promiseHandler(controller, promise, context, undefined, undefined);
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        router.get('/hello',
-            ...(fetchMiddlewares<Middleware>(HelloController)),
-            ...(fetchMiddlewares<Middleware>(HelloController.prototype.hello)),
-
-            async function HelloController_hello(context: any, next: any) {
-            const args = {
-            };
-
-            let validatedArgs: any[] = [];
-            try {
-              validatedArgs = getValidatedArgs(args, context, next);
-            } catch (err) {
-              const error = err as any;
-              context.status = error.status;
-              context.throw(error.status, JSON.stringify({ fields: error.fields }));
-            }
-
-            const controller = new HelloController();
-
-            const promise = controller.hello.apply(controller, validatedArgs as any);
-            return promiseHandler(controller, promise, context, undefined, undefined);
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        router.post('/hello',
-            ...(fetchMiddlewares<Middleware>(HelloController)),
-            ...(fetchMiddlewares<Middleware>(HelloController.prototype.helloPost)),
-
-            async function HelloController_helloPost(context: any, next: any) {
-            const args = {
-            };
-
-            let validatedArgs: any[] = [];
-            try {
-              validatedArgs = getValidatedArgs(args, context, next);
-            } catch (err) {
-              const error = err as any;
-              context.status = error.status;
-              context.throw(error.status, JSON.stringify({ fields: error.fields }));
-            }
-
-            const controller = new HelloController();
-
-            const promise = controller.helloPost.apply(controller, validatedArgs as any);
-            return promiseHandler(controller, promise, context, undefined, undefined);
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         router.post('/login',
             ...(fetchMiddlewares<Middleware>(LoginController)),
             ...(fetchMiddlewares<Middleware>(LoginController.prototype.auth)),
 
             async function LoginController_auth(context: any, next: any) {
             const args = {
-                    dto: {"in":"body","name":"dto","required":true,"ref":"LoginRequest"},
+                    dto: {"in":"body","name":"dto","required":true,"ref":"UserPost"},
             };
 
             let validatedArgs: any[] = [];

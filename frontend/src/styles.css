@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Raleway');
+
+/* TAGS STYLES */
+html, body {
+  width: 100vw;
+  height: 100vh;
+  scroll-behavior: smooth;
+  background: #1D2123;
+  color: #fff;
+  overflow: hidden;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+  display: inline-block;
+}
+h1,h2,h3,h4,h5,h6,p,a,input,div,span,button {
+  font-family: 'Raleway', sans-serif;
+}
+input {
+  outline-offset: 0;
+  outline: 0;
+}
+button {
+  outline-offset: 0;
+  outline: 0;
+}
+
+/* MINI STYLES */
+/* position */
+.abs { position: absolute; }
+.rel { position: relative; }
+/* display  table */
+.table { display: table; }
+.table-cell { display: table-cell; }
+/* display flex */
+.flex { display: flex; }
+.row { flex-direction: row; }
+.column { flex-direction: column; }
+.hor-center { justify-content: center; }
+.ver-center { align-items: center; align-content: center; }
+.wrap { flex-wrap: wrap; }
+/* grid gap */
+.g-c-g-50 { grid-column-gap: 50px; }
+.g-c-g-30 { grid-column-gap: 30px; }
+.g-c-g-25 { grid-column-gap: 25px; }
+.g-c-g-15 { grid-column-gap: 15px; }
+.g-c-g-10 { grid-column-gap: 10px; }
+/* width, height */
+.scr-f-w { width: 100vw; }
+.scr-f-h { height: 100vh; }
+.f-w { width: 100%; }
+.f-h { height: 100%; }
+/* text */
+.font-size-1-33 { font-size: 1.33em; }
+/* border */
+.b-bot-1 { border-bottom: 1px solid; }
+.bd-1 { border-width: 1px; }
+.bd-fff { border-color: white; }
+.bd-solid { border-style: solid; }
+/* scroll bar */
+.scroll-bar::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll-bar::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(239, 238, 224, 0.25);
+}
+.scroll-bar::-webkit-scrollbar-button {
+  display: none;
+}
+.scroll-bar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #FACD66;
+}
+.scroll-bar {
+  scrollbar-width: thin;
+  scrollbar-color: #6969dd #e0e0e0;
+}

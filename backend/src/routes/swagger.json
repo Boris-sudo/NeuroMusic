@@ -6,56 +6,12 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"AuthResponse": {
-				"properties": {
-					"login": {
-						"type": "string"
-					},
-					"password": {
-						"type": "string"
-					},
-					"done": {
-						"type": "boolean"
-					}
-				},
-				"required": [
-					"login",
-					"password",
-					"done"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"AuthRequest": {
-				"properties": {
-					"login": {
-						"type": "string"
-					},
-					"password": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"e_mail": {
-						"type": "string"
-					}
-				},
-				"required": [
-					"login",
-					"password",
-					"name",
-					"e_mail"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"LoginResponse": {
 				"properties": {
-					"login": {
+					"username": {
 						"type": "string"
 					},
-					"password": {
+					"email": {
 						"type": "string"
 					},
 					"done": {
@@ -63,33 +19,29 @@
 					}
 				},
 				"required": [
-					"login",
-					"password",
+					"username",
+					"email",
 					"done"
 				],
 				"type": "object",
 				"additionalProperties": false
 			},
-			"LoginRequest": {
+			"UserPost": {
 				"properties": {
-					"login": {
+					"username": {
 						"type": "string"
 					},
 					"password": {
 						"type": "string"
 					},
-					"name": {
-						"type": "string"
-					},
-					"e_mail": {
+					"email": {
 						"type": "string"
 					}
 				},
 				"required": [
-					"login",
+					"username",
 					"password",
-					"name",
-					"e_mail"
+					"email"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -107,71 +59,6 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/auth": {
-			"post": {
-				"operationId": "doAuthorization",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/AuthResponse"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/AuthRequest"
-							}
-						}
-					}
-				}
-			}
-		},
-		"/hello": {
-			"get": {
-				"operationId": "Hello",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "string"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
-			},
-			"post": {
-				"operationId": "HelloPost",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "string"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
-			}
-		},
 		"/login": {
 			"post": {
 				"operationId": "doLogin",
@@ -187,6 +74,9 @@
 						}
 					}
 				},
+				"tags": [
+					"BackendApi"
+				],
 				"security": [],
 				"parameters": [],
 				"requestBody": {
@@ -194,7 +84,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/LoginRequest"
+								"$ref": "#/components/schemas/UserPost"
 							}
 						}
 					}

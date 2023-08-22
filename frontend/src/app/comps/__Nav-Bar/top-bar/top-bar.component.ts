@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationElements } from "../../../services/routing/NavigationElements";
 import {RoutingService} from "../../../services/routing/routing.service";
+import {GenreList, MoodList} from "../../../services/GenerateMoodsService";
 
 @Component({
   selector: 'app-top-bar',
@@ -8,6 +9,9 @@ import {RoutingService} from "../../../services/routing/routing.service";
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  public searchValue = "";
+  public moodList = MoodList;
+  public genreList = GenreList;
 
   constructor(
     public router: RoutingService,
@@ -54,6 +58,14 @@ export class TopBarComponent implements OnInit {
     this.router.navigate(link);
   }
 
+  show_background_search() {
+
+  }
+  hide_background_search() {
+
+  }
+
   protected readonly NavigationElements = NavigationElements;
-  protected readonly HTMLElement = HTMLElement;
+  protected readonly MoodList = MoodList;
+  protected readonly GenreList = GenreList;
 }
