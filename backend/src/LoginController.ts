@@ -3,10 +3,10 @@ import {
     OperationId,
     Post,
     Route,
-    Tags
+    Tags,
+    Controller
 } from "tsoa";
 import { User, UserPost } from "./_modules/UserModel";
-import {Controller} from "@tsoa/runtime";
 
 export class LoginResponse {
     constructor(
@@ -18,6 +18,10 @@ export class LoginResponse {
 
 @Route("/login")
 export class LoginController extends Controller {
+
+    constructor() {
+        super();
+    }
     check_valid_date(user: UserPost) {
         let result: boolean = true;
         // TODO
