@@ -6,7 +6,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   scroll-behavior: smooth;
-  background: #1D2123;
+  background: var(--background-dark);
   color: #fff;
   overflow: hidden;
 }
@@ -81,4 +81,15 @@ button {
 .scroll-bar {
   scrollbar-width: thin;
   scrollbar-color: #6969dd #e0e0e0;
+}
+
+/* GLOBAL VARIABLES */
+/* size */
+body {
+  --login-box-width: min(100%, 300px);
+  --top-bar-height: 70px;
+}
+/* color */
+body {
+  --background-dark: #1D2123;
 }
