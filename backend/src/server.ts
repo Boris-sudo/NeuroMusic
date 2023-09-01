@@ -3,6 +3,7 @@ import Router from "@koa/router";
 import {RegisterRoutes} from "./routes/routes";
 import bodyParser from "koa-bodyparser";
 import cors from "@koa/cors";
+import "reflect-metadata";
 
 const app = new Koa();
 
