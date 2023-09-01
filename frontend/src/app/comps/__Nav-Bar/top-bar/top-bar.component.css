@@ -1,7 +1,7 @@
 .top-bar__container {
   overflow: visible;
   position: relative;
-  height: 70px;
+  height: var(--top-bar-height);
   width: 100vw;
   padding: 0 30px 0;
   box-sizing: border-box;
@@ -30,7 +30,7 @@
   top: 0;
   right: 0;
   z-index: 1001;
-  background: #1A1E1F;
+  background: var(--background-dark);
 }
 .left-bar__open-menu ul li:not(:first-child) {
   margin-top: 30px;

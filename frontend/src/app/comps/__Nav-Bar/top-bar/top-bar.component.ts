@@ -12,6 +12,7 @@ export class TopBarComponent implements OnInit {
   public searchValue = "";
   public moodList = MoodList;
   public genreList = GenreList;
+  public navigationElements = NavigationElements;
 
   constructor(
     public router: RoutingService,
@@ -19,7 +20,7 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit(): void {
     document.addEventListener("keydown", ev => {
-      if (ev.key=='Escape') this.close_menu();
+      if (ev.key=='Escape') this.searchValue='';
     })
   }
 
@@ -49,7 +50,6 @@ export class TopBarComponent implements OnInit {
   }
   interact_menu() {
     let menu=document.getElementById('small-src-menu')!;
-    console.log(menu);
     if (menu.style.width=='' || menu.style.width=='0' || menu.style.width=='0px') this.open_menu();
     else this.close_menu();
   }
@@ -58,14 +58,32 @@ export class TopBarComponent implements OnInit {
     this.router.navigate(link);
   }
 
-  show_background_search() {
-
-  }
-  hide_background_search() {
-
+  isContains(val: string):boolean {
+    let search = this.searchValue.toLowerCase();
+    return val.toLowerCase().search(search) != -1;
   }
 
-  protected readonly NavigationElements = NavigationElements;
-  protected readonly MoodList = MoodList;
-  protected readonly GenreList = GenreList;
+  getMoodParam() {
+    let count=0;
+    for (let mood of this.moodList) {
+      let search = this.searchValue.toLowerCase();
+      count += mood.name.toLowerCase().search(search) == -1? 0 : 1;
+    }
+    return count!=0;
+  }
+  getGenreParam() {
+    let count=0;
+    for (let genre of this.genreList) {
+      let search = this.searchValue.toLowerCase();
+      count += genre.name.toLowerCase().search(search) == -1? 0 : 1;
+    }
+    return count!=0;
+  }
+  getMoodList() {
+    let result=[];
+    for (let mood of this.moodList)
+      if (this.isContains(mood.name))
+        result.push(mood);
+    return result;
+  }
 }
