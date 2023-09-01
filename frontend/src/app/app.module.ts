@@ -15,6 +15,8 @@ import { LoginPageComponent } from './comps/__Pages/login-page/login-page.compon
 import { SearchPipe } from './pipes/search.pipe';
 import {FormsModule} from "@angular/forms";
 import { SearchContainerComponent } from './comps/__Models/search-container/search-container.component';
+import { MobileSearchContainerComponent } from './comps/__Models/mobile-search-container/mobile-search-container.component';
+import { MoodBackgroundDirective } from './directives/mood-background.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SearchContainerComponent } from './comps/__Models/search-container/sear
     GenreCardComponent,
     LoginPageComponent,
     SearchPipe,
-    SearchContainerComponent
+    SearchContainerComponent,
+    MobileSearchContainerComponent,
+    MoodBackgroundDirective
   ],
 	imports: [
 		BrowserModule,
