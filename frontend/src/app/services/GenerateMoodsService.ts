@@ -1,4 +1,4 @@
-interface Mood {
+export interface Mood {
   gradient: string;
   name: string;
 }

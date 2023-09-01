@@ -1,21 +1,22 @@
 <div id="search-background" class="search-background scroll-bar">
-  <p class="main-text">Настроение</p>
-  <div id="mood-card-container" class="flex rel column cards-container">
-
-    <div *ngFor="let list of moodList| search:searchValue; let i=index " class="mood-container flex column ver-center hor-center">
-      <div *ngIf="i < 3" [id]="'card'+list.name" class="mood-card"></div>
-      <p *ngIf="i < 3" class="mood-text">{{list.name}}</p>
+  <p [class.show]="mood_param" class="main-text">Настроение</p>
+  <div id="MSC" class="flex rel column cards-container">
+    <div [class.hide]="!isContains(mood)" *ngFor="let mood of moodList; let i=index" class="mood-container hide-class flex column ver-center hor-center">
+      <div [class.hide]="i >= 3" [id]="'laptop-search-mood-card'+mood.name" class="mood-card hide-class"></div>
+      <p [class.hide]="i >= 3" class="mood-text hide-class">{{mood.name}}</p>
     </div>
 
   </div>
 
-  <p class="main-text">Жанр</p>
+  <p [class.show]="genre_param" class="main-text">Жанр</p>
   <div class="flex rel column cards-container">
 
-    <div *ngFor="let list of genreList | search:searchValue; let i=index" class="genre-container rel flex column ver-center hor-center">
-      <img *ngIf="i<3" class="genre-card" [src]="list.image">
-      <div *ngIf="i<3" class="genre-text-cont flex ver-center hor-center"><p [id]="'text'+list.name" class="genre-text">{{list.name}}</p></div>
+    <div *ngFor="let genre of genreList | search:searchValue; let i=index" class="genre-container rel flex column ver-center hor-center">
+      <img *ngIf="i<3" class="genre-card" [src]="genre.image">
+      <div *ngIf="i<3" class="genre-text-cont flex ver-center hor-center"><p class="genre-text">{{genre.name}}</p></div>
     </div>
 
   </div>
+
+  <p style="margin-top: 50px;" [class.show]="!genre_param&&!mood_param" class="main-text">По вашему запросу ничего не найдено</p>
 </div>

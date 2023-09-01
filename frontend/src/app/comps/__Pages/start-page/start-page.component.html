@@ -1,5 +1,4 @@
 <main class="rel f-w scr-f-h main-part">
-<!--  just colorful images for background animation -->
 <!--  <img class="abs anim-svg-1"-->
 <!--       src="assets/animation_svg/animation_svg_1.svg">-->
 <!--  <img class="abs anim-svg-2"-->
@@ -8,7 +7,6 @@
 <!--       src="assets/animation_svg/animation_svg_3.svg">-->
 
 
-<!--  main stuff -->
   <p class="main-text">Настроение</p>
   <div id="mood-card-container" class="flex rel row cards-container">
     <app-mood-card [id]="'mood-card-'+list.name" *ngFor="let list of moodList" [mood]="list.name" [color_scheme]="list.gradient"></app-mood-card>
