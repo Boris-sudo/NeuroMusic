@@ -6,7 +6,7 @@ import {BackendService} from "../../../services/api/backend.service";
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css', '../../../../styles.css']
 })
 export class LoginPageComponent implements OnInit {
 
